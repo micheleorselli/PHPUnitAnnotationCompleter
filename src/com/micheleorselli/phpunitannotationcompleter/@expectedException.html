@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head></head>
+    <body>
+<h1>@expectedException</h1>
+<div class="section" title="@expectedException">
+<p>
+<a class="xref" href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.exceptions.examples.ExceptionTest.php" title="Example 4.5: Using the @expectedException annotation">Example 4.5</a> shows how to use the <code class="literal">@expectedException</code> annotation to test whether an exception is thrown inside the tested code.
+</p>
+<pre class="programlisting">
+<code><span class="default">&lt;?php</span><br><span class="keyword">class</span><span class="default"> </span><span class="default">ExceptionTest</span><span class="default"> </span><span class="keyword">extends</span><span class="default"> </span><span class="default">PHPUnit_Framework_TestCase</span><br><span class="keyword">{</span><br><span class="default">    </span><span class="comment">/**</span><br><span class="comment">     * @expectedException InvalidArgumentException</span><br><span class="comment">     */</span><br><span class="default">    </span><span class="keyword">public</span><span class="default"> </span><span class="keyword">function</span><span class="default"> </span><span class="default">testException</span><span class="keyword">(</span><span class="keyword">)</span><br><span class="default">    </span><span class="keyword">{</span><br><span class="default">    </span><span class="keyword">}</span><br><span class="keyword">}</span><br><span class="default">?&gt;</span><br></code>
+</pre>
+<p>
+Alternatively, you can use the <code class="literal">setExpectedException()</code> method to set the expected exception as shown in <a class="xref" href="writing-tests-for-phpunit.html#writing-tests-for-phpunit.exceptions.examples.ExceptionTest2.php" title="Example 4.6: Expecting an exception to be raised by the tested code">Example 4.6</a>.
+</p>
+<div class="example">
+<a id="writing-tests-for-phpunit.exceptions.examples.ExceptionTest2.php" name="writing-tests-for-phpunit.exceptions.examples.ExceptionTest2.php"></a>
+<p class="title">
+  <strong>Example 4.6: Expecting an exception to be raised by the tested code</strong>
+</p>
+<pre class="programlisting">
+<code><span class="default">&lt;?php</span><br><span class="keyword">class</span><span class="default"> </span><span class="default">ExceptionTest</span><span class="default"> </span><span class="keyword">extends</span><span class="default"> </span><span class="default">PHPUnit_Framework_TestCase</span><br><span class="keyword">{</span><br><span class="default">    </span><span class="keyword">public</span><span class="default"> </span><span class="keyword">function</span><span class="default"> </span><span class="default">testException</span><span class="keyword">(</span><span class="keyword">)</span><br><span class="default">    </span><span class="keyword">{</span><br><span class="default">        </span><span class="default">$this</span><span class="keyword">-&gt;</span><span class="default">setExpectedException</span><span class="keyword">(</span><span class="string">'InvalidArgumentException'</span><span class="keyword">)</span><span class="keyword">;</span><br><span class="default">    </span><span class="keyword">}</span><br><span class="keyword">}</span><br><span class="default">?&gt;</span><br></code>
+</pre>
+</div>
+</body>
+</html>

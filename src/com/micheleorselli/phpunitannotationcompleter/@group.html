@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head></head>
+    <body>
+<h1>@group</h1>
+<div class="section" title="@group">
+<p>
+A test can be tagged as belonging to one or more groups using the
+<code class="literal">@group</code> annotation like this
+</p>
+<pre class="programlisting">
+<code>class MyTest extends PHPUnit_Framework_TestCase
+{
+/**
+* @group specification
+*/
+public function testSomething()
+{
+}
+
+/**
+* @group regresssion
+* @group bug2204
+*/
+public function testSomethingElse()
+{
+}
+}</code>
+</pre>
+<p>
+Tests can be selected for execution based on groups using the
+<code class="literal">--group</code> and <code class="literal">--exclude-group</code>
+switches of the command-line test runner or using the respective directives of the XML
+configuration file.
+</p>
+</div>
+</body>
+</html>

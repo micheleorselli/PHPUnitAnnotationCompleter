@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head></head>
+    <body>
+<h1>@backupStaticAttributes</h1>
+<p>
+The backup and restore operations for static attributes of classes can be completely
+disabled for all tests of a test case class like this
+</p>
+              <pre class="programlisting">
+<code>/**
+ * @backupStaticAttributes disabled
+ */
+class MyTest extends PHPUnit_Framework_TestCase
+{
+    // ...
+}</code>
+</pre>
+<p>
+The <code class="literal">@backupStaticAttributes</code> annotation can also be used on the test method level.
+This allows for a fine-grained configuration of the backup and restore operations:
+</p>
+              <pre class="programlisting">
+<code>/**
+ * @backupStaticAttributes disabled
+ */
+class MyTest extends PHPUnit_Framework_TestCase
+{
+    /**
+     * @backupStaticAttributes enabled
+     */
+    public function testThatInteractsWithStaticAttributes()
+    {
+        // ...
+    }
+}</code>
+</pre>
+</body>
+</html>

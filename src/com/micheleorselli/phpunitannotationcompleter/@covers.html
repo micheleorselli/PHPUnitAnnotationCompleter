@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head></head>
+    <body>
+<h1>@covers</h1>
+<div class="section" title="@covers">
+<p>
+The <code class="literal">@covers</code> annotation can be used in the test code to
+specify which method(s) a test method wants to test:
+</p>
+              <pre class="programlisting">
+<code>/**
+ * @covers BankAccount::getBalance
+ */
+public function testBalanceIsInitiallyZero()
+{
+    $this-&gt;assertEquals(0, $this-&gt;ba-&gt;getBalance());
+}</code>
+</pre>
+              <p>
+                If provided, only the code coverage information for the specified method(s) will be considered.
+              </p>
+              <p>
+                <a class="xref" href="appendixes.annotations.html#appendixes.annotations.covers.tables.annotations" title="Table&nbsp;B.1.&nbsp;Annotations for specifying which methods are covered by a test">Table B.1</a> shows the syntax of the <code class="literal">@covers</code> annotation.
+              </p>
+              <div class="table">
+                <a id="appendixes.annotations.covers.tables.annotations" name="appendixes.annotations.covers.tables.annotations"></a>
+                <p class="title">
+                  <strong>Table&nbsp;B.1.&nbsp;Annotations for specifying which methods are covered by a test</strong>
+                </p>
+                <div class="table-contents">
+                  <table summary="Annotations for specifying which methods are covered by a test" border="1">
+                    <colgroup>
+                      <col />
+                      <col />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th align="left">
+                          Annotation
+                        </th>
+                        <th align="left">
+                          Description
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td align="left">
+                          <code class="literal">@covers ClassName::methodName</code>
+                        </td>
+                        <td align="left">
+                          <code class="literal">Specifies that the annotated test method covers the specified method.</code>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left">
+                          <code class="literal">@covers ClassName</code>
+                        </td>
+                        <td align="left">
+                          <code class="literal">Specifies that the annotated test method covers all methods of a given class.</code>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left">
+                          <code class="literal">@covers ClassName&lt;extended&gt;</code>
+                        </td>
+                        <td align="left">
+                          <code class="literal">Specifies that the annotated test method covers all methods of a given class and its parent class(es) and interface(s).</code>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left">
+                          <code class="literal">@covers ClassName::&lt;public&gt;</code>
+                        </td>
+                        <td align="left">
+                          <code class="literal">Specifies that the annotated test method covers all public methods of a given class.</code>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left">
+                          <code class="literal">@covers ClassName::&lt;protected&gt;</code>
+                        </td>
+                        <td align="left">
+                          <code class="literal">Specifies that the annotated test method covers all protected methods of a given class.</code>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left">
+                          <code class="literal">@covers ClassName::&lt;private&gt;</code>
+                        </td>
+                        <td align="left">
+                          <code class="literal">Specifies that the annotated test method covers all private methods of a given class.</code>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left">
+                          <code class="literal">@covers ClassName::&lt;!public&gt;</code>
+                        </td>
+                        <td align="left">
+                          <code class="literal">Specifies that the annotated test method covers all methods of a given class that are not public.</code>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left">
+                          <code class="literal">@covers ClassName::&lt;!protected&gt;</code>
+                        </td>
+                        <td align="left">
+                          <code class="literal">Specifies that the annotated test method covers all methods of a given class that are not protected.</code>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="left">
+                          <code class="literal">@covers ClassName::&lt;!private&gt;</code>
+                        </td>
+                        <td align="left">
+                          <code class="literal">Specifies that the annotated test method covers all methods of a given class that are not private.</code>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div><br class="table-break" />
+            </div>
+</body>
+</html>

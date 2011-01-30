@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head></head>
+    <body>
+<h1>@outputBuffering</h1>
+<div class="section" title="@outputBuffering">
+              <p>
+                The <code class="literal">@outputBuffering</code> annotation can be used to control PHP's <a class="ulink" href="http://www.php.net/manual/en/intro.outcontrol.php" target="_top">output buffering</a> like this
+              </p>
+              <pre class="programlisting">
+<code>/**
+ * @outputBuffering enabled
+ */
+class MyTest extends PHPUnit_Framework_TestCase
+{
+    // ...
+}</code>
+</pre>
+              <p>
+                The <code class="literal">@outputBuffering</code> annotation can also be used on the test method level. This allows for fine-grained control over the output buffering:
+              </p>
+              <pre class="programlisting">
+<code>/**
+ * @outputBuffering disabled
+ */
+class MyTest extends PHPUnit_Framework_TestCase
+{
+    /**
+     * @outputBuffering enabled
+     */
+    public function testThatPrintsSomething()
+    {
+        // ...
+    }
+}</code>
+</pre>
+            </div>
+</body>
+</html>
