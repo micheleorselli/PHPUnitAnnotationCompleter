@@ -15,5 +15,5 @@ Installation
 Tested with Netbeans 6.9.1 on osX 10.6
 
 [1]: http://www.phpunit.de/manual/current/en/appendixes.annotations.html
-[2]: https://github.com/downloads/micheleorselli/PHPUnitAnnotationCompleter/com-micheleorselli-phpunitannotationcompleter.nbm
+[2]: https://github.com/downloads/micheleorselli/PHPUnitAnnotationCompleter/com-micheleorselli-phpunitannotationcompleter-1.1.0.nbm
 [3]: http://platform.netbeans.org/tutorials/nbm-code-completion.html
