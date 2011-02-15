@@ -103,7 +103,7 @@ public CompletionTask createDocumentationTask() {
 
     @Override
     public CharSequence getSortText() {
-        return text;
+        return text.substring(1);
     }
 
     public String getText() {

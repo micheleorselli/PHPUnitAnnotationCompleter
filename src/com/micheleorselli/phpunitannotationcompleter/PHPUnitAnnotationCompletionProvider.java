@@ -11,8 +11,11 @@ import org.netbeans.spi.editor.completion.CompletionTask;
 import org.netbeans.spi.editor.completion.support.AsyncCompletionQuery;
 import org.netbeans.spi.editor.completion.support.AsyncCompletionTask;
 import org.openide.util.Exceptions;
+import org.netbeans.modules.editor.NbEditorUtilities;
+import org.openide.loaders.DataObject;
 
 /**
+ *
  * @author Michele Orselli <michele.orselli@gmail.com>
  */
 public class PHPUnitAnnotationCompletionProvider implements CompletionProvider {
@@ -24,6 +27,12 @@ public class PHPUnitAnnotationCompletionProvider implements CompletionProvider {
             return null;
         }
 
+        DataObject currentFile = NbEditorUtilities.getDataObject(jTextComponent.getDocument());
+
+        if (!currentFile.getName().endsWith("Test")) {
+            return null;
+        }
+
         return new AsyncCompletionTask(new AsyncCompletionQuery() {
 
             @Override
@@ -31,11 +40,13 @@ public class PHPUnitAnnotationCompletionProvider implements CompletionProvider {
 
                 String filter = null;
 
+                String PREFIX = "@";
+                
                 String TAGS[] = new String[]{
-                    "@assert", "@author", "@backupGlobals", "@backupStaticAttributes", "@covers",
-                    "@dataProvider", "@depends", "@expectedException", "@expectedExceptionMessage",
-                    "@group", "@outputBuffering", "@runTestsInSeparateProcesses", "@runInSeparateProcess",
-                    "@test", "@testdox", "@ticket"
+                    "assert", "author", "backupGlobals", "backupStaticAttributes", "covers",
+                    "dataProvider", "depends", "expectedException", "expectedExceptionMessage",
+                    "group", "outputBuffering", "runTestsInSeparateProcesses", "runInSeparateProcess",
+                    "test", "testdox", "ticket"
                 };
               
                 int startOffset = caretOffset - 1;
@@ -55,10 +66,16 @@ public class PHPUnitAnnotationCompletionProvider implements CompletionProvider {
                     Exceptions.printStackTrace(ex);
                 }
 
+                if (!filter.startsWith(PREFIX)) {
+                    completionResultSet.finish();
+
+                    return;
+                }
+
                 for (String tag : TAGS)
                 {
-                    if (!tag.equals("") && tag.startsWith(filter)) {
-                        completionResultSet.addItem(new PHPUnitAnnotationCompletionItem(tag, startOffset, caretOffset));
+                    if ((PREFIX + tag).startsWith(filter)) {
+                        completionResultSet.addItem(new PHPUnitAnnotationCompletionItem(PREFIX + tag, startOffset, caretOffset));
                     }
                     
                 }
